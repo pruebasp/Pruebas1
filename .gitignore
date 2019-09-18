@@ -131,7 +131,11 @@ buildNumber.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+
 Backend/demo1/mvnw
 Backend/demo1/mvnw.cmd
 mvnw
 mvnw.cmd
+demo1/mvnw.cmd
+demo1/mvnw
+
