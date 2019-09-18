@@ -76,7 +76,7 @@ derby.log
 spring-test/test-output/
 .gradle
 argfile*
-pom.xml
+
 activemq-data/
 
 classes/
@@ -138,4 +138,5 @@ mvnw
 mvnw.cmd
 demo1/mvnw.cmd
 demo1/mvnw
-
+Backend/demo1/.mvn
+.mvn
