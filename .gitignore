@@ -91,4 +91,10 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
+coverage/
+
+.vscode/
+output
+steps.md
+
 # End of https://www.gitignore.io/api/node
