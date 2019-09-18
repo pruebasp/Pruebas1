@@ -133,3 +133,5 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 Backend/demo1/mvnw
 Backend/demo1/mvnw.cmd
+mvnw
+mvnw.cmd
