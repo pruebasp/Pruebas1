@@ -30,6 +30,7 @@ build/
 ### VS Code ###
 .vscode/
 
+<<<<<<< HEAD
 ### Code-Java ###
 # Language Support for Java(TM) by Red Hat extension for Visual Studio Code - https://marketplace.visualstudio.com/items?itemName=redhat.java
 
@@ -128,6 +129,8 @@ demo1/mvnw
 Backend/demo1/.mvn
 .mvn
 
+=======
+>>>>>>> 0c2367e24729c5ba0f8c54aeb009408ed121596e
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
 
@@ -224,5 +227,12 @@ typings/
 coverage/
 
 
+
 output
 steps.md
+
+
+
+# End of https://www.gitignore.io/api/node
+
+
