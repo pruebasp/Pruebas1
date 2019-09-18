@@ -489,6 +489,40 @@ bin
 obj
 packages
 =======
+=======
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+>>>>>>> 0c2367e24729c5ba0f8c54aeb009408ed121596e
 # Created by https://www.gitignore.io/api/node
 # Edit at https://www.gitignore.io/?templates=node
 
@@ -584,9 +618,12 @@ typings/
 
 coverage/
 
-.vscode/
 output
 steps.md
 
 # End of https://www.gitignore.io/api/node
+<<<<<<< HEAD
 >>>>>>> 0902d0199a43e6dc91abbf5c3d9a75f6741fe777
+=======
+
+>>>>>>> 0c2367e24729c5ba0f8c54aeb009408ed121596e
