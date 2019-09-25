@@ -3,7 +3,7 @@ const app = express();
 const morgan = require('morgan');
 
 //Importar routes
-const productRoutes = require('./routes/products');
+const productRoutes = require('./controllers/product.controller');
 
 // Settings
 app.set('port', process.env.PORT || 3000);

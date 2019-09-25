@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../database/database');
+const sequelize = require('../dao/dbPostgres');
 const Product = sequelize.define('product',{
     id:{
         type: Sequelize.INTEGER,
