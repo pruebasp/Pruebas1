@@ -15,10 +15,7 @@ namespace AppIntento22.Controllers
     {
         private readonly bdanimalesContext _context;
 
-        public AnimalsController (bdanimalesContext context)
-        {
-            _context = context;
-        }
+       
 
         // GET: api/Animals
         [HttpGet]

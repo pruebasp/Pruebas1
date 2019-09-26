@@ -9,9 +9,9 @@ namespace AppIntento22.Dao
     public interface IAnimal
     {
         List<Animal> GetAll();
-        Animal Buscar(int id);
-        bool Delete(int id);
+        Animal Buscar(string id);
+        bool Delete(string id);
         Animal Create(Animal animal);
-        Animal Update(int id, Animal animal);
+        Animal Update(string id, Animal animal);
     }
 }
