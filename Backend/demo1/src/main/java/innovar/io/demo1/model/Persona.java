@@ -1,6 +1,8 @@
 package innovar.io.demo1.model;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "personas")
 public class Persona {
-    private  long id;
+    private  String id;
     private  String docIdentidad;
     private  String tipoDocIdentidad;
     private  String nombre;
@@ -38,13 +40,13 @@ public class Persona {
          this.ocupacion = ocupacion;
      }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getId() {
+    @Id @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    public String getId() {
         return id;
     }
 
-    public void setId(long id){
+    public void setId(String id){
          this.id = id;
     }
 
