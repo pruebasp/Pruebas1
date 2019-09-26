@@ -1,4 +1,4 @@
-package innovar.io.demo1.repository;
+package innovar.io.demo1.dao.SQLconfig;
 import innovar.io.demo1.model.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface PersonaRepository extends JpaRepository<Persona, Long>{
+public interface IPersonaRepositorySQL extends JpaRepository<Persona, String>{
+
 }
 
 
