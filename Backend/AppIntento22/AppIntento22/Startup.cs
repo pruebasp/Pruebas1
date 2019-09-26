@@ -12,15 +12,23 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using prueba20;
+using AppIntento22.Dao;
+using AppIntento22.BusinessService;
 
 namespace AppIntento22
 {
     public class Startup
     {
         
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            // Aumentando ◙◙◙◙
+            var builder = new ConfigurationBuilder()
+              .SetBasePath(env.ContentRootPath)
+              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+              .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -28,9 +36,20 @@ namespace AppIntento22
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<bdanimalesContext>(options =>
-                options.UseMySql("server=192.168.0.23;port=6003;uid=root;pwd=my-secret-pw;database=bdanimales"));
+            // "server=192.168.0.200;port=6003;uid=root;pwd=my-secret-pw;database=bdanimales"
+
+            services.AddDbContext<bdanimalesContext>(options =>options.UseMySql(Configuration.GetConnectionString("DefaultConnectionMySql")));
+
+
+            //services.AddDbContext<bdanimalesContext>(options => options.UsePostgreSql(Configuration.GetConnectionString("DefaultConnectionPostgres")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            //services.AddSingleton<IAnimal, AnimalRepository>();
+            services.AddTransient<AnimalBusinessService>();
+            services.AddTransient<AnimalRepository>();
+            services.AddTransient<AnimalRepositorioPost>();
+            //services.AddTransient<IAnimal>();
+            //services.UsePostgresl
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
