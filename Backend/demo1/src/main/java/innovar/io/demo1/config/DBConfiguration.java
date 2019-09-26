@@ -9,7 +9,7 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-public class configEnv {
+public class DBConfiguration {
 
     @Autowired
     Environment env;

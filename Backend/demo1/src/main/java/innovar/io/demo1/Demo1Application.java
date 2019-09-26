@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 public class Demo1Application {
@@ -25,14 +26,22 @@ public class Demo1Application {
         SpringApplication.run(Demo1Application.class, args);
     }
 
+    @Autowired
+    private Environment environment;
+
     @Bean
     public PersonaDao personaDao (){
-        if(false){
+        if(environment.getActiveProfiles()[0].toString().equals("prod") || environment.getActiveProfiles()[0].toString().equals("test") ){
+            System.out.println("DESARROLLO EN PROD - SQL");
+
             return personaRepositorySQL;
         }
-        else{
+        else if(environment.getActiveProfiles()[0].toString().equals("dev")){
+            System.out.println("DESARROLLO EN DEV - MONGO");
             return personaRepositoryMongo;
         }
+        System.out.println("DESARROLLO EN DEFAULT - MONGO");
+        return personaRepositoryMongo;
 
     }
 
