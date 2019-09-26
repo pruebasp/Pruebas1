@@ -38,16 +38,33 @@ namespace AppIntento22
         {
             // "server=192.168.0.200;port=6003;uid=root;pwd=my-secret-pw;database=bdanimales"
 
-            services.AddDbContext<bdanimalesContext>(options =>options.UseMySql(Configuration.GetConnectionString("DefaultConnectionMySql")));
+            
 
-
+            //services.AddDbContext<bdanimalesContext>(ConnectionString: Configuration.GetConnectionString("DefaultConnectionMongo"));
             //services.AddDbContext<bdanimalesContext>(options => options.UsePostgreSql(Configuration.GetConnectionString("DefaultConnectionPostgres")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+           
             //services.AddSingleton<IAnimal, AnimalRepository>();
-            services.AddTransient<AnimalBusinessService>();
-            services.AddTransient<AnimalRepository>();
-            services.AddTransient<AnimalRepositorioPost>();
+            services.AddScoped<AnimalBusinessService>();
+
+            //
+            //services.AddTransient<AnimalRepositorioMongo>();
+
+            if (Configuration.GetValue<string>("DB") == "mysql")
+            {
+                services.AddDbContext<bdanimalesContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnectionMySql")));
+                services.AddScoped<IAnimal, AnimalRepository>();
+            }
+            else
+            {
+                if (Configuration.GetValue<string>("DB") == "mongo")
+                {
+                    
+                    services.AddScoped<IAnimal, AnimalRepositorioMongo>();
+                }
+            }
             //services.AddTransient<IAnimal>();
             //services.UsePostgresl
         }

@@ -10,17 +10,17 @@ namespace AppIntento22.BusinessService
     
     public class AnimalBusinessService 
     {
-        private readonly AnimalRepository _animalRepositorio;
-
+        //private readonly AnimalRepository _animalRepositorio;
+        private readonly IAnimal _animalRepositorio;
         // private readonly AnimalRepository _animalRepositorio;
 
-        public AnimalBusinessService(AnimalRepository animalRepository)
+        public AnimalBusinessService(IAnimal animalRepository)
         {
             _animalRepositorio = animalRepository;
         }
 
 
-        public bool Delete(int id)
+        public bool Delete(string id)
         {
          
             //var animal = _con.Animal.Find(id);
@@ -36,7 +36,7 @@ namespace AppIntento22.BusinessService
             return _animalRepositorio.GetAll();
         }
 
-        public Animal Buscar(int id)
+        public Animal Buscar(string id)
         {
             // opcion b = 
             //var ls = _context.Animal.ToList().FindLast(e => e.Idanimal == id);
@@ -53,7 +53,7 @@ namespace AppIntento22.BusinessService
             return ls;
         }
 
-        public Animal Update(int id, Animal animal)
+        public Animal Update(string id, Animal animal)
         {
 
             //Animal ls = _context.Animal.Update(animal).Entity;

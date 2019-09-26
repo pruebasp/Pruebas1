@@ -36,7 +36,7 @@ namespace AppIntento22.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Animal> Get(int id)
+        public ActionResult<Animal> Get(string id)
         {
             var ls = _Bussinessanimal.Buscar(id);
             //var ls = _Ianimal.Buscar(id);
@@ -58,7 +58,7 @@ namespace AppIntento22.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public ActionResult<Animal> Put(int id, [FromBody] Animal value)
+        public ActionResult<Animal> Put(string id, [FromBody] Animal value)
         {
             value.Idanimal = id;
             Animal ls = _Bussinessanimal.Update(id, value);
@@ -71,7 +71,7 @@ namespace AppIntento22.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public ActionResult<Boolean> Delete(int id)
+        public ActionResult<Boolean> Delete(string id)
         {
             var ls = _Bussinessanimal.Delete(id);
             //var ls = _Ianimal.Delete(id);
