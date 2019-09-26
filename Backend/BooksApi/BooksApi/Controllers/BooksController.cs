@@ -20,11 +20,11 @@ namespace BooksApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Book>> Get() =>
+        public ActionResult<List<Models.BooksApi>> Get() =>
             _bookService.Get();
 
         [HttpGet("{id:length(24)}", Name = "GetBook")]
-        public ActionResult<Book> Get(string id)
+        public ActionResult<Models.BooksApi> Get(string id)
         {
             var book = _bookService.Get(id);
 
@@ -37,7 +37,7 @@ namespace BooksApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Book> Create(Book book)
+        public ActionResult<Models.BooksApi> Create(Models.BooksApi book)
         {
             _bookService.Create(book);
 
@@ -45,7 +45,7 @@ namespace BooksApi.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
-        public IActionResult Update(string id, Book bookIn)
+        public IActionResult Update(string id, Models.BooksApi bookIn)
         {
             var book = _bookService.Get(id);
 

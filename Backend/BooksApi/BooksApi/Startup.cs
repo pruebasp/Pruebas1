@@ -35,6 +35,8 @@ namespace BooksApi
         sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
             services.AddSingleton <BookService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSingleton<IEmailService, EmailServiceDummy>();
         }
 
         private int BookService()
