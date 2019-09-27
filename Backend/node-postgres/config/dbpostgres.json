@@ -1,0 +1,9 @@
+{
+    "strconex":{
+        "database":"postgres",
+        "username":"postgres",
+        "password":"123456789",
+        "port":"6002",
+        "dialect":"postgres"
+    }
+}

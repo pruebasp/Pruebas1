@@ -1,66 +1,29 @@
-
-const Product= require('../models/Product')
+const Product= require('../models/Product');
 
 // Crear producto
-async function createProduct(req,res){
-    const{descripcion, stock,price} = req.body;
-    try{
-        let newProduct= await Product.create({
-            descripcion,
-            stock,
-            price
-        },{
-            fields: ['descripcion','stock','price']
-        });
-        
-        if(newProduct){
-            return res.json({
-                message: 'Producto creado exitosamente',
-                data: newProduct
-            });
-        }
-    }
-    catch(error){
-        console.log(error);
-        res.status(500).json({
-            message: 'Aalgo va mal',
-            data: {}
-        });
-    }
+async function createProduct(producto){
+    const{descripcion, stock,price} = producto;
+    let newProduct= await Product.create({
+        descripcion,
+        stock,
+        price
+    },{
+        fields: ['descripcion','stock','price']
+    });
+    return newProduct;
 }
 
 // Mostrar productos
-async function getProducts(req,res){
-    try{
-        const products= await Product.findAll();
-        res.json({
-            data: products
-        });
-    }
-    catch(error){
-        console.log(error);
-    }
-    
+async function getProducts(res){
+    const products= await Product.findAll();
+    res.json(products);
+    return products;
 }
 
-// Obtener solo un producto por id
-async function getOneProduct(req,res){
-    const {id}= req.params;
-    try {
-        const product = await Product.findOne({
-            where: {
-                id
-            }
-        })
-        res.json(product);
-    } catch (error) {
-        console.log(error);
-    }  
-}
-// Modificar
-async function updateProduct(req,res){
-    const {id}= req.params;
-    const {descripcion,stock,price}=req.body;
+// Modificar producto
+async function updateProduct(ide,nproducto){
+    const {id}= ide;
+    const {descripcion,stock,price}=nproducto;
 
     const products = await Product.findAll({
         attributes:['id','descripcion','stock','price'],
@@ -77,23 +40,30 @@ async function updateProduct(req,res){
             })
         })
     }
-    return res.json({
-        message: 'Producto modificado exitosamente',
-        data: products
-    });
+    return products;
 }
 //Eliminar
-async function deleteProduct(req,res){
-    const {id}= req.params;
+async function deleteProduct(ide){
+    const {id}= ide;
     const deleteRowCount = await Product.destroy({
-        where: {
-            id
-        }
-    })
-    res.json({
-        message: 'Producto eliminado exitosamente',
-        count: deleteRowCount
+        where: {id} 
     });
 }
+module.exports={createProduct,getProducts,deleteProduct,updateProduct};
 
-module.exports={createProduct,getProducts,getOneProduct,deleteProduct,updateProduct};
+/*
+// Obtener solo un producto por id
+async function getOneProduct(req,res){
+    const {id}= req.params;
+    try {
+        const product = await Product.findOne({
+            where: {
+                id
+            }
+        })
+        res.json(product);
+    } catch (error) {
+        console.log(error);
+    }  
+}
+*/

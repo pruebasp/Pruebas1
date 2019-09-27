@@ -1,0 +1,9 @@
+{
+    "strconex":{
+        "database":"dbProducts",
+        "username":"root",
+        "password":"my-secret-pw",
+        "port":"6003",
+        "dialect":"mysql"
+    }
+}

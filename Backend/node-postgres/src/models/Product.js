@@ -3,10 +3,10 @@ const sequelize = require('../dao/dbPostgres');
 const Product = sequelize.define('product',{
     id:{
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
     },
     descripcion:{
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
     },
     stock:{
         type: Sequelize.INTEGER
