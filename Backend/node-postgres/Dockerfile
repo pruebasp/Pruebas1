@@ -1,8 +1,5 @@
-FROM ubuntu
+FROM node:10-alphine
 WORKDIR /app
-RUN apt-get update
-RUN apt-get install nodejs -y
-RUN apt-get install npm -y
 
 COPY src/ src/
 COPY config/ config/
