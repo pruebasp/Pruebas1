@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
-WORKDIR /app
-COPY . .
-ENTRYPOINT ["dotnet", "AppIntento22.dll"]
-=======
 FROM ubuntu
 WORKDIR /appC
 RUN apt-get update
@@ -21,4 +15,4 @@ RUN apt-get install dotnet-sdk-2.2 -y
 COPY . .
 RUN dotnet publish
 ENTRYPOINT ["dotnet","bin/Debug/netcoreapp2.2/publish/AppIntento22.dll"]
->>>>>>> a12f84acf38e5fc6332dbae0e6c92dde314502dd
+
