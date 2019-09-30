@@ -1,4 +1,5 @@
 from java:8-alpine
+run apt install maven -y
 workdir app/
 copy src/ src/
 copy pom.xml pom.xml
