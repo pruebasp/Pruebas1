@@ -3,6 +3,7 @@ package innovar.io.demo1;
 import innovar.io.demo1.dao.MongoConfig.IPersonaRepositoryMongo;
 import innovar.io.demo1.dao.PersonaDao;
 import innovar.io.demo1.dao.PersonaRepositoryMongo;
+import innovar.io.demo1.dao.PersonaRepositoryPost;
 import innovar.io.demo1.dao.PersonaRepositorySQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,8 +19,8 @@ public class Demo1Application {
     PersonaRepositorySQL personaRepositorySQL;
     @Autowired
     PersonaRepositoryMongo personaRepositoryMongo;
-   /** @Autowired
-    PersonaRepositorySQL personaRepositorytrid;**/
+    @Autowired
+    PersonaRepositoryPost personaRepositoryPost;
 
 
     public static void main(String[] args) {
@@ -31,15 +32,21 @@ public class Demo1Application {
 
     @Bean
     public PersonaDao personaDao (){
-        if(environment.getActiveProfiles()[0].toString().equals("prod") || environment.getActiveProfiles()[0].toString().equals("test") ){
-            System.out.println("DESARROLLO EN PROD - SQL");
+        if(environment.getActiveProfiles()[0].toString().equals("sql")  ){
+            System.out.println("DESARROLLO EN - SQL");
 
             return personaRepositorySQL;
         }
-        else if(environment.getActiveProfiles()[0].toString().equals("dev")){
-            System.out.println("DESARROLLO EN DEV - MONGO");
+        else if(environment.getActiveProfiles()[0].toString().equals("post")){
+            System.out.println("DESARROLLO EN - POST");
+            return personaRepositoryPost;
+        }
+
+        else if(environment.getActiveProfiles()[0].toString().equals("mongo")){
+            System.out.println("DESARROLLO EN - MONGO");
             return personaRepositoryMongo;
         }
+
         System.out.println("DESARROLLO EN DEFAULT - MONGO");
         return personaRepositoryMongo;
 
