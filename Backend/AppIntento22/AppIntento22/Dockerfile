@@ -12,6 +12,6 @@ RUN chown root:root /etc/apt/sources.list.d/microsoft-prod.list
 RUN apt-get install -y apt-transport-https
 RUN apt-get update
 RUN apt-get install dotnet-sdk-2.2 -y
-
-COPY ./bin/ .
+COPY . .
+RUN dotnet publish
 ENTRYPOINT ["dotnet","bin/Debug/netcoreapp2.2/publish/AppIntento22.dll"]
