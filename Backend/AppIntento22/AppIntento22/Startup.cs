@@ -51,18 +51,22 @@ namespace AppIntento22
 
             //
             //services.AddTransient<AnimalRepositorioMongo>();
-
+            Console.WriteLine("=====================================");
+            Console.WriteLine(Configuration.GetValue<string>("DB"));
+            Console.WriteLine(Configuration.GetValue<string>("DB"));
             if (Configuration.GetValue<string>("DB") == "mysql")
             {
                 services.AddDbContext<bdanimalesContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnectionMySql")));
                 services.AddScoped<IAnimal, AnimalRepository>();
+                Console.WriteLine("mysql");
             }
             else
             {
                 if (Configuration.GetValue<string>("DB") == "mongo")
                 {
-                    
+                    Console.WriteLine("mongo");
                     services.AddScoped<IAnimal, AnimalRepositorioMongo>();
+                  
                 }
             }
             //services.AddTransient<IAnimal>();

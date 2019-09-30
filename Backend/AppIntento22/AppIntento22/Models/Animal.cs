@@ -17,7 +17,7 @@ namespace prueba20
         [BsonElement("segunEsqueleto")]
         public string SegunEsqueleto { get; set; }
 
-        [BsonElement("TipoHabitad")]
+        [BsonElement("tipoHabitad")]
         public string TipoHabitad { get; set; }
 
         [BsonElement("tipoReproduccion")]
