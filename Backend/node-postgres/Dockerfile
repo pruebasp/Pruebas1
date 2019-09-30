@@ -1,4 +1,4 @@
-FROM node 
+FROM node:8.13 
 WORKDIR /app
 
 COPY src/ src/
