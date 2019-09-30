@@ -1,5 +1,4 @@
 from maven:3.3-jdk-8
-run apt install maven -y
 workdir app/
 copy src/ src/
 copy pom.xml pom.xml
