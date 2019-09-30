@@ -1,4 +1,4 @@
-FROM node:10-alphine
+FROM node 
 WORKDIR /app
 
 COPY src/ src/
