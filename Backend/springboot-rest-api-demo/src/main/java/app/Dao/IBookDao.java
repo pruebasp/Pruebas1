@@ -1,11 +1,9 @@
 package app.Dao;
 
 import app.model.Book;
-import org.springframework.data.mongodb.repository.MongoRepository;
-
 import java.util.List;
 
-public interface IBookRepository{
+public interface IBookDao {
     Book getById(String id);
     List<Book> listall();
     Book update(String id, Book b);

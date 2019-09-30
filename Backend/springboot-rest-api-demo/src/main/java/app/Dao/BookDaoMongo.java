@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BookRepositoryMongo implements IBookRepository {
+public class BookDaoMongo implements IBookDao {
 
   @Autowired
   MongoConfig mongoConfig;

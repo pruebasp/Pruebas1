@@ -6,17 +6,18 @@ import java.util.Map;
 
 import app.BussinessService.BookBussinesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.Dao.IBookRepository;
-
 
 @RestController
 @RequestMapping("/book")
+@Configuration
 public class BookController {
 
   @Autowired
