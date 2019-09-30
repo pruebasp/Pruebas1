@@ -18,7 +18,7 @@ app.use(express.json());
 //si es mongo esto ...
 if(config.util.getEnv('NODE_ENV')=='dbmongo'){
     require('./dao/dbMongo');
-  }
+}
 
 // Routes
 app.use('',productRoutes);
