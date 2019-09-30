@@ -1,4 +1,6 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2
 WORKDIR /app
+
 COPY . .
-ENTRYPOINT ["dotnet", "AppIntento22.dll"]
+RUN dotnet publish
+ENTRYPOINT ["dotnet","bin/Debug/netcoreapp2.2/publish/AppIntento22.dll"]
