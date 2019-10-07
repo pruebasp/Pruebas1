@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import innovar.io.demo1.exception.ResourceNotFoundException;
 import innovar.io.demo1.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class PersonaController {
 
 
     @GetMapping("/persona/buscar/{id}")
-    public ResponseEntity<Persona> buscarPersona(@PathVariable(value = "id") String personaId) {
+    public ResponseEntity<Persona> buscarPersona(@PathVariable(value = "id") String personaId) throws ResourceNotFoundException {
        return ResponseEntity.ok().body(personaService.buscarPorId(personaId));
     }
 
@@ -44,13 +45,13 @@ public class PersonaController {
     }
 
     @PutMapping("/persona/actualizar/{id}")
-    public ResponseEntity<Persona> actualizarPersona(@PathVariable(value = "id") String personaId, @Valid @RequestBody Persona atributosPersona)  {
+    public ResponseEntity<Persona> actualizarPersona(@PathVariable(value = "id") String personaId, @Valid @RequestBody Persona atributosPersona) throws ResourceNotFoundException {
 
         return ResponseEntity.ok(personaService.actualizar(personaId,atributosPersona));
     }
 
     @DeleteMapping("/persona/eliminar/{id}")
-    public Map<String, Boolean> eliminarPersona(@PathVariable(value = "id") String personaId) {
+    public boolean eliminarPersona(@PathVariable(value = "id") String personaId) throws ResourceNotFoundException {
 
         return personaService.borrar(personaId);
     }

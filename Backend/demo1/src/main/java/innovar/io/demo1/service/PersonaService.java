@@ -12,19 +12,16 @@ import java.util.Map;
 
 @Service
 public class PersonaService {
-    //personasql
     @Autowired
     PersonaDao personaDao;
 
 
-    public Persona buscarPorId(String id) {
+    public Persona buscarPorId(String id) throws ResourceNotFoundException {
         Persona pe = personaDao.findById(id);
         if(pe == null){
-            try {
-                throw new  ResourceNotFoundException("Persona no encontrada con el id ::"+id);
-            } catch (ResourceNotFoundException e) {
-                e.printStackTrace();
-            }
+
+            throw new  ResourceNotFoundException("Persona no encontrada con el id ::"+id);
+
         }
         return pe;
     }
@@ -38,7 +35,7 @@ public class PersonaService {
         return personaDao.save(persona);
     }
 
-    public Persona actualizar(String id ,Persona atributosPersona) {
+    public Persona actualizar(String id ,Persona atributosPersona) throws ResourceNotFoundException {
         Persona personaA = buscarPorId(id);
 
         personaA.setApellidoMaterno(atributosPersona.getApellidoMaterno());
@@ -57,11 +54,19 @@ public class PersonaService {
 
 
 
-    public Map<String, Boolean> borrar(String Id) {
+    public boolean borrar(String Id) throws ResourceNotFoundException {
+
         Persona persona = buscarPorId(Id);
-        personaDao.delete(Id);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
+
+        try {
+            personaDao.delete(Id);
+            return true;
+
+        }catch (Exception e ){
+            return false;
+        }
+
+
+
     }
 }

@@ -1,10 +1,7 @@
 package innovar.io.demo1;
 
+import innovar.io.demo1.dao.*;
 import innovar.io.demo1.dao.MongoConfig.IPersonaRepositoryMongo;
-import innovar.io.demo1.dao.PersonaDao;
-import innovar.io.demo1.dao.PersonaRepositoryMongo;
-import innovar.io.demo1.dao.PersonaRepositoryPost;
-import innovar.io.demo1.dao.PersonaRepositorySQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +18,8 @@ public class Demo1Application {
     PersonaRepositoryMongo personaRepositoryMongo;
     @Autowired
     PersonaRepositoryPost personaRepositoryPost;
+    @Autowired
+    PersonaRepositoryMySql personaRepositoryMySql;
 
 
     public static void main(String[] args) {
@@ -45,6 +44,10 @@ public class Demo1Application {
         else if(environment.getActiveProfiles()[0].toString().equals("mongo")){
             System.out.println("DESARROLLO EN - MONGO");
             return personaRepositoryMongo;
+        }
+        else if(environment.getActiveProfiles()[0].toString().equals("mysql")){
+            System.out.println("DESARROLLO EN - MYSQL");
+            return  personaRepositoryMySql;
         }
 
         System.out.println("DESARROLLO EN DEFAULT - MONGO");
