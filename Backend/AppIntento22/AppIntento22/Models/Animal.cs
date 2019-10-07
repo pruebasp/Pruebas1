@@ -7,6 +7,7 @@ namespace prueba20
 {
     public partial class Animal
     {
+
         [BsonId]
         [BsonRepresentation(representation: BsonType.ObjectId)]
         public string Idanimal { get; set; }

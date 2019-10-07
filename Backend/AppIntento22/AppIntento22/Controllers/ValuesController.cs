@@ -15,22 +15,21 @@ namespace AppIntento22.Controllers
     {
         private readonly AnimalBusinessService _Bussinessanimal;
         
-        //private readonly bdanimalesContext _context;
+        
 
         public ValuesController(AnimalBusinessService businessService)
         {
-            //_Ianimal = ICategory;
+            
             _Bussinessanimal = businessService;
         }
 
         // GET api/values
         [HttpGet]
-        //public  ActionResult<IEnumerable<Animal>> Get()
+        
         public ActionResult<IEnumerable<Animal>> Get()
         {
             var ls = _Bussinessanimal.GetAll();
-            //var ls = _Ianimal.GetAll();
-            //var ls = _context.Animal.ToList();
+          
             return ls;
         }
 
@@ -39,8 +38,6 @@ namespace AppIntento22.Controllers
         public ActionResult<Animal> Get(string id)
         {
             var ls = _Bussinessanimal.Buscar(id);
-            //var ls = _Ianimal.Buscar(id);
-           // var ls = _context.Animal.ToList().FindLast(e => e.Idanimal == id);
             return ls;
         }
 
@@ -49,9 +46,6 @@ namespace AppIntento22.Controllers
         public ActionResult<Animal> Post([FromBody] Animal value)
         {
             Animal ls = _Bussinessanimal.Create(value);
-            //Animal ls = _Ianimal.Create(value);
-            //Animal ls = _context.Animal.Add(value).Entity;
-            //_context.SaveChanges();
             return ls;
 
         }
@@ -62,10 +56,6 @@ namespace AppIntento22.Controllers
         {
             value.Idanimal = id;
             Animal ls = _Bussinessanimal.Update(id, value);
-            //Animal ls = _Ianimal.Update(id,value);
-            //value.Idanimal = id;
-            //Animal ls = _context.Animal.Update(value).Entity;
-            //_context.SaveChanges();
             return ls;
         }
 
@@ -74,10 +64,6 @@ namespace AppIntento22.Controllers
         public ActionResult<Boolean> Delete(string id)
         {
             var ls = _Bussinessanimal.Delete(id);
-            //var ls = _Ianimal.Delete(id);
-            //var animal = _context.Animal.Find(id);
-            // _context.Animal.Remove(animal);
-            //_context.SaveChanges();
             return true;
         }
     }
