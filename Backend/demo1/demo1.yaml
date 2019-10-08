@@ -1,0 +1,19 @@
+pool:
+  name: Azure Pipelines
+steps:
+- script: 'mvn test'
+  workingDirectory: Backend/demo1
+  displayName: 'Command Line Script'
+
+- script: 'mvn sonar:sonar -Dsonar.projectKey=AppIntento22 -Dsonar.host.url=http://192.168.0.200:9000 -Dsonar.login=52e27f83d9c5e16c3785201bbdb410716b20931c'
+  workingDirectory: Backend/demo1
+  displayName: 'Command Line Script'
+
+- task: Docker@2
+  displayName: buildAndPush
+  inputs:
+    containerRegistry: JavaDocker
+    repository: pruebap/pruebatest
+    Dockerfile: Backend/demo1/Dockerfile
+    buildContext: Backend/demo1
+    tags: 'alex-java-sonar'
