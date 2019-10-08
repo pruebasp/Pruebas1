@@ -1,6 +1,6 @@
 pool:
   name: Azure Pipelines
-  vm: ubuntu-16.04
+  vmImage: ubuntu-16.04
 steps:
 - script: 'mvn test'
   workingDirectory: Backend/demo1
