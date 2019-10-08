@@ -1,4 +1,5 @@
 pool:
+  name: Azure Pipelines
   vm: ubuntu-16.04
 steps:
 - script: 'mvn test'
