@@ -6,9 +6,7 @@ import innovar.io.demo1.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class PersonaService {
@@ -54,12 +52,15 @@ public class PersonaService {
 
 
 
-    public boolean borrar(String Id) throws ResourceNotFoundException {
+    public boolean borrar(String id) throws ResourceNotFoundException {
 
-        Persona persona = buscarPorId(Id);
+        Persona persona = buscarPorId(id);
+        if(persona == null){
+            return false;
+        }
 
         try {
-            personaDao.delete(Id);
+            personaDao.delete(id);
             return true;
 
         }catch (Exception e ){

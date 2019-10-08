@@ -1,12 +1,12 @@
 package innovar.io.demo1.dao;
 
-import innovar.io.demo1.dao.MySqlConfig.IPersonaRepositoryMySql;
-import innovar.io.demo1.dao.PostgrestConfig.IPersonaRepositoryPost;
+import innovar.io.demo1.dao.mysqlconfig.IPersonaRepositoryMySql;
 import innovar.io.demo1.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonaRepositoryMySql implements  PersonaDao {
@@ -16,7 +16,14 @@ public class PersonaRepositoryMySql implements  PersonaDao {
 
     @Override
     public Persona findById(String id) {
-        return iPersonaRepositoryMySql.findById(id).get();
+
+        Optional<Persona> p = iPersonaRepositoryMySql.findById(id);
+        if (p.isPresent()) {
+            return p.get();
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
@@ -30,8 +37,8 @@ public class PersonaRepositoryMySql implements  PersonaDao {
     }
 
     @Override
-    public boolean delete(String Id) {
-        iPersonaRepositoryMySql.deleteById(Id);
+    public boolean delete(String id) {
+        iPersonaRepositoryMySql.deleteById(id);
         return false;
     }
 }

@@ -3,32 +3,31 @@ package innovar.io.demo1.service;
 import innovar.io.demo1.dao.PersonaDao;
 import innovar.io.demo1.exception.ResourceNotFoundException;
 import innovar.io.demo1.model.Persona;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class PersonaServiceTest {
-
+class PersonaServiceTest {
 
     @InjectMocks
     private PersonaService personaService;
 
     @Mock
-    private  PersonaDao personaDao;
+    private PersonaDao personaDao;
 
     Persona persona;
     List<Persona> lista ;
 
-    @Before
+    @BeforeEach
     public void setup() throws Exception {
         MockitoAnnotations.initMocks(this);
         persona = new Persona();
@@ -51,15 +50,18 @@ public class PersonaServiceTest {
     }
 
     @Test
-    public void buscarPorId() throws ResourceNotFoundException {
-
+    void buscarPorId() throws ResourceNotFoundException {
         // Prueba
         assertEquals(persona,personaService.buscarPorId("1"));
-
     }
+
+
+
+
 
     @Test
     public void buscarPorIdEx(){
+
         assertThrows(ResourceNotFoundException.class,()-> personaService.buscarPorId(""));
     }
 
@@ -106,5 +108,4 @@ public class PersonaServiceTest {
     public void borrarEx() throws ResourceNotFoundException {
         assertThrows(ResourceNotFoundException.class,()-> personaService.borrar("2"));
     }
-
 }

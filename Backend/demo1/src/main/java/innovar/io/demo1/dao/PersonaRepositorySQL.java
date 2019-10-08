@@ -1,36 +1,45 @@
 package innovar.io.demo1.dao;
 
-import innovar.io.demo1.dao.SQLconfig.IPersonaRepositorySQL;
+import innovar.io.demo1.dao.sqlconfig.IPersonaRepositorySQL;
 import innovar.io.demo1.model.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonaRepositorySQL implements  PersonaDao {
 
     @Autowired
-    IPersonaRepositorySQL IPersonaRepositorySQL;
+    IPersonaRepositorySQL iPersonaRepositorySQL;
 
     @Override
     public Persona findById(String id) {
-        return IPersonaRepositorySQL.findById(id).get();
+
+        Optional<Persona> p = iPersonaRepositorySQL.findById(id);
+        if (p.isPresent()) {
+            return p.get();
+        }
+        else{
+            return null;
+        }
+
     }
 
     @Override
     public List<Persona> findAll() {
-        return IPersonaRepositorySQL.findAll();
+        return iPersonaRepositorySQL.findAll();
     }
 
     @Override
     public Persona save(Persona persona) {
-        return IPersonaRepositorySQL.save(persona);
+        return iPersonaRepositorySQL.save(persona);
     }
 
     @Override
-    public boolean delete(String Id) {
-        IPersonaRepositorySQL.deleteById(Id);
+    public boolean delete(String id) {
+        iPersonaRepositorySQL.deleteById(id);
         return false;
     }
 }

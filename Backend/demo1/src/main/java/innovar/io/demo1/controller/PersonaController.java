@@ -1,11 +1,10 @@
 package innovar.io.demo1.controller;
 
 import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import innovar.io.demo1.exception.ResourceNotFoundException;
+import innovar.io.demo1.model.PersonaDTO;
 import innovar.io.demo1.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,14 +39,18 @@ public class PersonaController {
     }
 
     @PostMapping("/persona/crear")
-    public Persona createPersona(@Valid @RequestBody Persona persona) {
-        return personaService.crear(persona);
+    public Persona createPersona(@Valid @RequestBody PersonaDTO personaDTO) {
+        Persona p = new Persona(personaDTO);
+
+        return personaService.crear(p);
     }
 
     @PutMapping("/persona/actualizar/{id}")
-    public ResponseEntity<Persona> actualizarPersona(@PathVariable(value = "id") String personaId, @Valid @RequestBody Persona atributosPersona) throws ResourceNotFoundException {
+    public ResponseEntity<Persona> actualizarPersona(@PathVariable(value = "id") String personaId, @Valid @RequestBody PersonaDTO personaDTO) throws ResourceNotFoundException {
 
-        return ResponseEntity.ok(personaService.actualizar(personaId,atributosPersona));
+
+        Persona p = new Persona(personaDTO);
+        return ResponseEntity.ok(personaService.actualizar(personaId,p));
     }
 
     @DeleteMapping("/persona/eliminar/{id}")

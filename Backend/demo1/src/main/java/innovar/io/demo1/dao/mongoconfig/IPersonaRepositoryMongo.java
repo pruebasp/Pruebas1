@@ -1,4 +1,4 @@
-package innovar.io.demo1.dao.MongoConfig;
+package innovar.io.demo1.dao.mongoconfig;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import innovar.io.demo1.model.Persona;

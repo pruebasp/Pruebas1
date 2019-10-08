@@ -6,7 +6,6 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -27,13 +26,25 @@ public class Persona {
     public  Persona(){
 
     }
+    public  Persona(PersonaDTO personaDTO){
+        this.setOcupacion(personaDTO.getOcupacion());
+        this.setFechaNac(personaDTO.getFechaNac());
+        this.setEdad(personaDTO.getEdad());
+        this.setTipoDocIdentidad(personaDTO.getTipoDocIdentidad());
+        this.setApellidoPaterno(personaDTO.getApellidoPaterno());
+        this.setApellidoMaterno(personaDTO.getApellidoMaterno());
+        this.setNombre(personaDTO.getNombre());
+        this.setDocIdentidad(personaDTO.getDocIdentidad());
+        this.setSexo(personaDTO.getSexo());
+
+
+    }
      public Persona( String docIdentidad,String tipoDocIdentidad, String nombre, String apellidoMaterno, String apellidoPaterno, int edad, int sexo, String ocupacion,String fechaNac){
          this.apellidoMaterno = apellidoMaterno;
-         this.apellidoPaterno = apellidoMaterno;
+         this.apellidoPaterno = apellidoPaterno;
          this.docIdentidad = docIdentidad;
          this.edad = edad;
          this.fechaNac = fechaNac;
-
          this.tipoDocIdentidad = tipoDocIdentidad;
          this.nombre = nombre;
          this.sexo = sexo;
