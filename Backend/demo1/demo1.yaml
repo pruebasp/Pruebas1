@@ -5,7 +5,7 @@ steps:
   workingDirectory: Backend/demo1
   displayName: 'Command Line Script'
 
-- script: 'mvn sonar:sonar -Dsonar.projectKey=AppIntento22 -Dsonar.host.url=http://192.168.0.200:9000 -Dsonar.login=52e27f83d9c5e16c3785201bbdb410716b20931c'
+- script: 'mvn sonar:sonar -Dsonar.projectKey=AppIntento22 -Dsonar.host.url=http://190.117.75.121:9000 -Dsonar.login=52e27f83d9c5e16c3785201bbdb410716b20931c'
   workingDirectory: Backend/demo1
   displayName: 'Command Line Script'
 
