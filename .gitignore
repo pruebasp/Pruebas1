@@ -202,6 +202,9 @@ ClientBin /
 * .publishsettings
 node_modules /
 .scannerwork /
+.scannerwork/
+scannerwork/
+scannerwork
 orleans.codegen.cs
 
 # Dado que hay múltiples flujos de trabajo, elimine el comentario de la siguiente línea para ignorar bower_components
