@@ -5,11 +5,22 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "test": "mocha",
+    "cover": "istanbul cover node_modules/mocha/bin/mocha test/test.js",
     "build": "build script executed",
     "postgres": "SET NODE_ENV=dbpostgres&& node src/index.js",
     "mssql": "SET NODE_ENV=dbmssql&& node src/index.js",
     "mysql": "SET NODE_ENV=dbmysql&& node src/index.js",
-    "mongo": "SET NODE_ENV=dbmongo&& node src/index.js"
+    "mongo": "SET NODE_ENV=dbmongo&& node src/index.js",
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner"
+  },
+  "jest": {
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "reports",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
   },
   "keywords": [],
   "author": "",
@@ -22,13 +33,19 @@
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
+    "nyc": "^14.1.1",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.19.0",
     "tedious": "^6.4.0"
   },
   "devDependencies": {
-    "cross-env": "^6.0.0",
-    "nodemon": "^1.19.2"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.2.1",
+    "nodemon": "^1.19.2",
+    "sonar-scanner": "^3.1.0",
+    "supertest": "^4.0.2"
   }
 }

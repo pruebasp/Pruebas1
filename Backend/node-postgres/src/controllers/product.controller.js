@@ -6,7 +6,7 @@ var product= require('../businessService/services');
 
 router.post('/',function (req, res){
     try{
-        const response = product.createProduct(req.body);
+        product.createProduct(req.body);
         res.json({
             message : 'Producto creado exitosamente'
        });
@@ -22,7 +22,7 @@ router.post('/',function (req, res){
 
 router.get('/',function(req,res){
     try{
-        const productos = product.getProducts(res);
+        product.getProducts(res);
     }
     catch(error){
         console.log(error);
