@@ -8,15 +8,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Devart.Data.PostgreSql.EFCore" Version="7.14.1470" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.12" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="MongoDB.Bson" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.9.1" />
+    <PackageReference Include="Npgsql" Version="4.1.0-preview2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.1-preview1-final" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

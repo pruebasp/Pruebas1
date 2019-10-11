@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace prueba20
@@ -21,8 +22,8 @@ namespace prueba20
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;uid=root;pwd=uriel001;database=bdanimales");
+
+                //optionsBuilder.UseMySql("server=localhost;uid=root;pwd=uriel001;database=bdanimales");
             }
         }
 
@@ -37,7 +38,7 @@ namespace prueba20
 
                 entity.Property(e => e.Idanimal)
                     .HasColumnName("idanimal")
-                    .HasColumnType("int(11)");
+                    .HasColumnType("varchar(45)");
 
                 entity.Property(e => e.NombreAnimal)
                     .HasColumnName("nombreAnimal")
