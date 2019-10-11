@@ -201,6 +201,7 @@ ClientBin /
 * .pfx
 * .publishsettings
 node_modules /
+.scannerwork /
 orleans.codegen.cs
 
 # Dado que hay múltiples flujos de trabajo, elimine el comentario de la siguiente línea para ignorar bower_components
@@ -720,6 +721,6 @@ coverage/
 output
 steps.md
 
-.scannerwork/
+
 
 # End of https://www.gitignore.io/api/node
