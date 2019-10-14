@@ -1,5 +1,7 @@
 const Product= require('../models/Product');
 const uwu= require('../../sample.json');
+var config= require('config');
+
 // Crear producto
 async function createProduct(producto){
     const{descripcion, stock,price} = producto;
