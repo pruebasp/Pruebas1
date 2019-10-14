@@ -17,8 +17,8 @@ async function createProduct(producto){
 async function getProducts(res){
     try{
         const products= await Product.findAll();
-        this.timeout(10000);
         res.json(products);
+        this.timeout(10000);      
     }
     catch{
         res.json({
