@@ -1,4 +1,4 @@
-FROM node:11 
+FROM node:carbon-jessie 
 WORKDIR /app
 
 COPY src/ src/
