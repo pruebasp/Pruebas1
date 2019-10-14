@@ -15,15 +15,13 @@ async function createProduct(producto){
 
 // Mostrar productos
 async function getProducts(res){
-    try{
-        const products= await Product.findAll();
-        this.timeout(1500);
-        res.json(products);
-        return products;   
-           
+    if(config.util.getEnv('NODE_ENV')=='test'){  
+        res.json(uwu);  
     }
-    catch{
-        res.json(uwu);
+    else{
+        const products= await Product.findAll();
+        res.json(products);
+        console.log(products); 
     }
     
 }

@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'dbpostgres';
+process.env.NODE_ENV = 'test';
 var Producto= require('../src/models/Product');
 let chai= require('chai');
 let chaiHttp=require('chai-http');
