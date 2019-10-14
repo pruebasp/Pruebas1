@@ -20,7 +20,8 @@ async function getProducts(res){
         res.json(products);
     }
     catch{
-        res.json('../sample.json');
+        const uwu= require('../sample.json');
+        res.json(uwu);
     }
     return products;
 }
