@@ -9,6 +9,7 @@ chai.use(chaiHttp);
 
 productoss=require('../sample.json');
 // Test the /GET route
+
 describe('/GET product',()=>{
     it('it should GET all the products', (done) => {
         chai.request(server)
@@ -20,7 +21,8 @@ describe('/GET product',()=>{
             done();
             });
     });
-});
+    
+});    
 
 describe('/POST product', () => {
     it('it should POST a producto ', (done) => {
@@ -38,6 +40,7 @@ describe('/POST product', () => {
             });
     });
 });
+
 describe('/PUT/:id product', () => {
     it('it should UPDATE a product given the id', (done) => {
         /*const descripcion="Pollo",
@@ -60,6 +63,7 @@ describe('/PUT/:id product', () => {
         });
     });
 });
+
 describe('/DELETE/:id product', () => {
     it('it should DELETE a product given the id', (done) => {  
         chai.request(server)
@@ -69,4 +73,8 @@ describe('/DELETE/:id product', () => {
                 done();
         });
     });
+});
+
+after(async () => {
+    process.exit();
 });

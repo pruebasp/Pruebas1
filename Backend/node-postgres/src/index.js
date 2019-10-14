@@ -28,4 +28,9 @@ app.listen(app.get('port'), () => {
   console.log(`Server on port ${app.get('port')}`);
 });
 
+function stop() {
+  app.close();
+}
+
 module.exports=app;
+module.exports.stop = stop;
