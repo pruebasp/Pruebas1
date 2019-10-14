@@ -1,4 +1,4 @@
-FROM node:carbon-jessie 
+FROM ubuntu
 WORKDIR /app
 
 COPY src/ src/
