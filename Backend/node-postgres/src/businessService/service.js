@@ -1,5 +1,5 @@
 const Product= require('../models/Product');
-
+const uwu= require('../sample');
 // Crear producto
 async function createProduct(producto){
     const{descripcion, stock,price} = producto;
@@ -20,7 +20,6 @@ async function getProducts(res){
         res.json(products);
     }
     catch{
-        const uwu= require('../sample.json');
         res.json(uwu);
     }
     return products;
