@@ -1,5 +1,5 @@
 const Product= require('../models/Product');
-const uwu= require('../sample');
+const uwu= require('../../sample.json');
 // Crear producto
 async function createProduct(producto){
     const{descripcion, stock,price} = producto;
