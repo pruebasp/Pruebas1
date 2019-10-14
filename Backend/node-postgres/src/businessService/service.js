@@ -18,12 +18,13 @@ async function getProducts(res){
     try{
         const products= await Product.findAll();
         res.json(products);
-        this.timeout(10000);      
+        return products;   
+        this.timeout(1500);   
     }
     catch{
         res.json(uwu);
     }
-    return products;
+    
 }
 
 // Modificar producto
