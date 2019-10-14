@@ -21,11 +21,7 @@ async function getProducts(res){
         this.timeout(10000);      
     }
     catch{
-        res.json({
-            "descripcion": "Sal de mar",
-            "stock": 15,
-            "price": 20.03
-        });
+        res.json(uwu);
     }
     return products;
 }
