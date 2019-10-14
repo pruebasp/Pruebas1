@@ -17,9 +17,10 @@ async function createProduct(producto){
 async function getProducts(res){
     try{
         const products= await Product.findAll();
+        this.timeout(1500);
         res.json(products);
         return products;   
-        this.timeout(1500);   
+           
     }
     catch{
         res.json(uwu);
