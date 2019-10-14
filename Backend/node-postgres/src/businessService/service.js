@@ -15,8 +15,13 @@ async function createProduct(producto){
 
 // Mostrar productos
 async function getProducts(res){
-    const products= await Product.findAll();
-    res.json(products);
+    try{
+        const products= await Product.findAll();
+        res.json(products);
+    }
+    catch{
+        res.json('../sample.json');
+    }
     return products;
 }
 

@@ -7,6 +7,7 @@ let server = require('../src/index');
 let should = chai.should();
 chai.use(chaiHttp);
 
+productoss=require('../sample.json');
 // Test the /GET route
 describe('/GET product',()=>{
     it('it should GET all the products', (done) => {
