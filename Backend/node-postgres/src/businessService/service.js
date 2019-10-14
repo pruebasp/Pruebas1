@@ -20,7 +20,11 @@ async function getProducts(res){
         res.json(products);
     }
     catch{
-        res.json(uwu);
+        res.json({
+            "descripcion": "Sal de mar",
+            "stock": 15,
+            "price": 20.03
+        });
     }
     return products;
 }
