@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "test": "mocha",
-    "cover": "exec NODE_ENV=test&& istanbul cover node_modules/mocha/bin/mocha test/test.js",
+    "cover": "SET NODE_ENV=test&& istanbul cover node_modules/mocha/bin/mocha test/test.js",
     "build": "build script executed",
     "postgres": "SET NODE_ENV=dbpostgres&& node src/index.js",
     "mssql": "SET NODE_ENV=dbmssql&& node src/index.js",
