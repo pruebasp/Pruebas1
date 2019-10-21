@@ -45,6 +45,8 @@ class PersonaServiceTest {
 
         Mockito.when(personaDao.findById("1")).thenReturn(persona);
 
+
+
         Mockito.when(personaDao.save(persona)).thenReturn(persona);
 
     }
@@ -104,8 +106,7 @@ class PersonaServiceTest {
         assertEquals(true,personaService.borrar("1"));
     }
 
-    @Test
-    public void borrarEx() throws ResourceNotFoundException {
-        assertThrows(ResourceNotFoundException.class,()-> personaService.borrar("2"));
-    }
+
+
+
 }

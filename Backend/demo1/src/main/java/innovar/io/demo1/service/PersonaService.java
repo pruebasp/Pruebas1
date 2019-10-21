@@ -52,20 +52,12 @@ public class PersonaService {
 
 
 
-    public boolean borrar(String id) throws ResourceNotFoundException {
+    public boolean borrar(String id) {
 
-        Persona persona = buscarPorId(id);
-        if(persona == null){
-            return false;
-        }
-
-        try {
             personaDao.delete(id);
             return true;
 
-        }catch (Exception e ){
-            return false;
-        }
+
 
 
 
