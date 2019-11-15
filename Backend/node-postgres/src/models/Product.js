@@ -1,18 +1,20 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../database/database');
+const sequelize = require('../dao/dbPostgres');
 const Product = sequelize.define('product',{
     id:{
         type: Sequelize.INTEGER,
+        autoIncrement: true,
         primaryKey: true
+        
     },
     descripcion:{
-        type: Sequelize.TEXT
+        type: Sequelize.STRING,
     },
     stock:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
     },
     price:{
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL,
     }
 },{
     timestamps: false

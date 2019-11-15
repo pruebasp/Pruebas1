@@ -38,6 +38,7 @@ bld /
 # NUNIT
 * .VisualState.xml
 TestResult.xml
+bin/
 
 # Construir resultados de un proyecto ATL
 [Dd] ebugPS /
@@ -201,6 +202,10 @@ ClientBin /
 * .pfx
 * .publishsettings
 node_modules /
+.scannerwork /
+.scannerwork/
+scannerwork/
+scannerwork
 orleans.codegen.cs
 
 # Dado que hay múltiples flujos de trabajo, elimine el comentario de la siguiente línea para ignorar bower_components

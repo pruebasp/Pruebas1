@@ -1,0 +1,12 @@
+[
+    {
+        "descripcion": "Sal de mar",
+        "stock": 15,
+        "price": 20.03
+    },
+    {
+        "descripcion": "Pollo a la brasa",
+        "stock": 30,
+        "price": 8.00
+    }
+]

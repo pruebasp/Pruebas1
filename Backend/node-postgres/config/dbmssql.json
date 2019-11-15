@@ -1,0 +1,9 @@
+{
+    "strconex":{
+        "database":"dbProducts",
+        "username":"sa",
+        "password":"abc123456.",
+        "port":"6004",
+        "dialect":"mssql"
+    }
+}
