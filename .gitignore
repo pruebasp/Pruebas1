@@ -38,6 +38,7 @@ bld /
 # NUNIT
 * .VisualState.xml
 TestResult.xml
+bin/
 
 # Construir resultados de un proyecto ATL
 [Dd] ebugPS /
